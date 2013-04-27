@@ -13,6 +13,8 @@ cyl_dia = 32; // mm
 cyl_r = cyl_dia / 2;
 rect_fillet_r = 3;
 
+cross_angle = 56.59;
+
 $fn=64;
 
 difference() {
@@ -20,7 +22,7 @@ difference() {
 		// Main X
 		for (i = [-1, 1]) {
 			for (j = [-1, 1]) {
-				scale([j, 1, 1]) rotate([0, 0, i * 53.784]) 
+				scale([j, 1, 1]) rotate([0, 0, i * cross_angle]) 
 					translate([rect_fillet_r, -ob_width/2 + rect_fillet_r, 0]) minkowski()
 					{
 						cube([ext_len - 2 * rect_fillet_r,ob_width - 2 * rect_fillet_r, thickness/2]);
@@ -39,7 +41,7 @@ difference() {
 		for (i = [-1, 1]) {
 			for (j = [-1, 1]) {
 				for (k = [0, 1]) {
-					scale([j, 1, 1]) rotate([0, 0, i * 53.784])
+					scale([j, 1, 1]) rotate([0, 0, i * cross_angle])
 						translate([ob_gap + 7.5 + 15 * k,0,-thickness /2]) 
 							cylinder(r=hole_r, h=thickness * 2 + delta);
 				}
