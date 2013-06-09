@@ -4,7 +4,7 @@ separation = 40;
 thickness = 6;
 
 horn_thickness = 13;
-horn_x = 8;
+horn_x = 7.7;
 
 belt_width = 5;
 belt_x = 5.6;
