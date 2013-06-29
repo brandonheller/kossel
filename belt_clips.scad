@@ -19,25 +19,27 @@ dTheta_inside = belt_pitch/clamp_inside_radius;
 dTheta_outside = belt_pitch/clamp_outside_radius;
 pi = 3.14159;
 
+small = 0.01;  // avoid graphical artifacts with coincident faces
+
 difference() {
   cube([clamp_width, clamp_length, clamp_thickness]);
 
   // Belt paths
   difference() {
-    translate([0,0,clamp_base]) cylinder(h=path_height,r=clamp_outside_radius);
-    translate([0,0,clamp_base]) cylinder(h=path_height,r=clamp_inside_radius);
+    translate([0,0,clamp_base]) cylinder(h=path_height+small,r=clamp_outside_radius);
+    translate([0,0,clamp_base]) cylinder(h=path_height+small,r=clamp_inside_radius);
   }
   difference() {
-    translate([clamp_width,clamp_length,clamp_base]) cylinder(h=path_height,r=clamp_outside_radius);
-    translate([clamp_width,clamp_length,clamp_base]) cylinder(h=path_height,r=clamp_inside_radius);
+    translate([clamp_width,clamp_length,clamp_base]) cylinder(h=path_height+small,r=clamp_outside_radius);
+    translate([clamp_width,clamp_length,clamp_base]) cylinder(h=path_height+small,r=clamp_inside_radius);
   }
 
   // Belt teeth
   for (theta = [0:dTheta_inside:pi/2]) {
-    translate([clamp_inside_radius*cos(theta*180/pi),clamp_inside_radius*sin(theta*180/pi),clamp_base]) cylinder(r=tooth_radius, h=path_height);
+    translate([clamp_inside_radius*cos(theta*180/pi),clamp_inside_radius*sin(theta*180/pi),clamp_base]) cylinder(r=tooth_radius, h=path_height+small);
   }
   for (theta = [0:dTheta_outside:pi/2]) {
-    translate([clamp_width-clamp_outside_radius*cos(theta*180/pi),clamp_length-clamp_outside_radius*sin(theta*180/pi),clamp_base]) cylinder(r=tooth_radius, h=path_height);
+    translate([clamp_width-clamp_outside_radius*cos(theta*180/pi),clamp_length-clamp_outside_radius*sin(theta*180/pi),clamp_base]) cylinder(r=tooth_radius, h=path_height+small);
   }
 
 
