@@ -2,6 +2,8 @@
 
 include <configuration.scad>;
 
+thickness = 4.0;
+
 extrusion_width = 15;
 hole_r = m3_radius;
 hole_spacing = 17.5;
