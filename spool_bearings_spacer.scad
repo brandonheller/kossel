@@ -1,6 +1,6 @@
 // Insert between two bearings in the vertical spool holder to provide spacing.
 
-height = 10;
+height = 15;
 or = 11.5/2;
 ir = (8.0 + 0.2)/2;
 
