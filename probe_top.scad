@@ -42,6 +42,9 @@ module probe_top() {
 			translate([-25, hinge_extent - hinge_len_upper/2, hinge_height - hinge_len_upper/2 - height/2]) rotate([0, 90, 0]) cylinder(r=1.5, h=50, $fn=16);
 			// Trim edge
 			translate([0, 32, 5]) rotate([-45, 0, 0]) cube([hinge_width + 2 * delta, hinge_len_upper + 2 * delta, 50], center=true);
+			// Flat edge
+			translate([0, -21, 0]) cube([50, 10, 10], center=true);
+			// Endstop mount
 		}
 	}
 }
