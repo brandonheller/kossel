@@ -41,7 +41,7 @@ plunger_to_mount_rear = main_thickness + dti_plunger_center_to_body_cyl_edge;
 // Length below top flange, to bottom of mount
 bottom_length = dti_gauge_top_to_body_cyl + dti_body_r + (dti_flange_len/2);
 
-module effector_cup() {
+module dti_holder() {
 	difference() {
 		union() {
 			// Main body flange
@@ -93,4 +93,4 @@ module effector_cup() {
 	}
 }
 
-effector_cup();
+dti_holder();
